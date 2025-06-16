@@ -1,16 +1,12 @@
 import os
+import shutil
 
-example = "/home/harry/PycharmProjects/PythonProject/test"
+example1 = "/home/harry/PycharmProjects/portable-backup/shutil examples/example1/"
+example2 = "/home/harry/PycharmProjects/portable-backup/shutil examples/example2/"
 
-def print_directories(path):
-    for root, dirs, files in os.walk(path):
-        print(root)
-        print(dirs)
-        print(files)
 
-print_directories(example)
 
-print(f"{os.path.getmtime(example + "/crazy")}")
+shutil.copy2(example1 + "exfile", example2 + "exfile22")
 
 # 1749820461.3982635
 

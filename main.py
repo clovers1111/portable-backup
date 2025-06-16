@@ -9,8 +9,8 @@ import array
 
 # Hardcoded example file path *MUST END WITH A FORWARD SLASH*
 #test is our updated reference; updatee is being updated
-updater = "/home/harry/PycharmProjects/PythonProject/test/"
-updatee = "/home/harry/PycharmProjects/PythonProject/test2/test/"
+updater = "/home/harry/PycharmProjects/portable-backup/test/"
+updatee = "/home/harry/PycharmProjects/portable-backup/test2/test/"
 hash_algorithm = 'sha256'
 hash_object = hashlib.new(hash_algorithm)
 
@@ -40,20 +40,26 @@ class Directory:
                         break
                     else:
                         print(f"{file} needs to be updated")
-                        self.replFile(i,j)
-                        self.checkFile(self.directory + file, updatee.directory + filet)
+                        self.replFile(self.directory + file, updatee.directory + filet)
                         break
+                    #delete from array each of the compared files with successful matches
                 j += 1
             i += 1
         return
 
     #check if the files updated correctly
     def checkFile(self, updater_file, updatee_file):
-        if updater_file == updatee_file:
-            return
+        if os.path.getmtime(updater_file) == os.path.getmtime(updatee_file):
+            print(f"Complete: file update successful from {updater_file}")
+        else:
+            print("Error: files likely failed to update")
+        return
 
-    #replaces file based on file's index inside filelist
-    def replFile(self, i, j):
+
+    def replFile(self, file_path, filet_path):
+        #copies reference file to new file
+        shutil.copy2(file_path, filet_path)
+        self.checkFile(file_path, filet_path)
         return
         
 
