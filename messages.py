@@ -14,7 +14,9 @@ welcome_message = """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀�
 ⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀PORTA BACKUP⠀⠀"""
 
-version = "Alpha 1.0.0"
+version = "Version: Alpha 1.0.0"
+
+readme = "READ README.md BEFORE RUNNING THIS PROGRAM!"
 
 liability = "clovers1111 responsible for any damage you may cause to your system. Always make manual backups."
 
