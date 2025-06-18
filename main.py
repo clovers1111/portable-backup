@@ -4,7 +4,7 @@ import hashlib
 import array
 
 from classes import Directory
-from welcome import *
+from messages import *
 
 #variable declarations
 updater = ""
