@@ -13,6 +13,7 @@ __pycache__/
 test/
 test2/
 shutil examples/
+testoutput.py
 
 # Distribution / packaging
 .Python
