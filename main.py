@@ -17,6 +17,7 @@ userInput = ""
 print(f"{welcome_message}")
 print(f"{version}\n")
 
+print(readme)
 while userInput != "y":
     iterator = 0
     while iterator != 2:
