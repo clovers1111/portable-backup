@@ -3,78 +3,69 @@ import shutil
 import hashlib
 import array
 
-#create replace file function
-#create function for copying new files
-#create function for deleting new files
+from classes import Directory
+from welcome import *
 
-# Hardcoded example file path *MUST END WITH A FORWARD SLASH*
-#test is our updated reference; updatee is being updated
-updater = "/home/harry/PycharmProjects/portable-backup/test/"
-updatee = "/home/harry/PycharmProjects/portable-backup/test2/test/"
-hash_algorithm = 'sha256'
-hash_object = hashlib.new(hash_algorithm)
+#variable declarations
+updater = ""
+updatee = ""
+dirUpdater = []
+dirUpdatee = []
+delimiter = "/"
+userInput = ""
 
-# Class that will hold all the relevant traits for comparison
-class Directory:
-    def __init__(self, directory, filelist):
-        self.directory = directory
-        self.filelist = filelist
-        self.marker = []
-        for file in filelist:
-            self.marker.append(os.path.getmtime(directory + "/" + file))
+print(f"{welcome_message}")
+print(f"{version}\n")
 
-        print(f"New class created from {directory}")
+while userInput != "y":
+    iterator = 0
+    while iterator != 2:
 
-    #comparison based on name and then timemarker
-    def compareTo(self, updatee):
+        if iterator == 0:
+            updatee = input("Please input the directory you intend on updating: ")
+            dirlength = len(updatee)
+            if updatee[dirlength-1:] != "/":
+                updatee = updatee + "/"
+            if updatee[:1] != "/":
+                updatee = "/" + updatee
 
-        #variable declaration; keeps track of static comparison files
-        i = 0
-        #nested for loops to iterate and compare
-        for file in self.filelist:
-            j = 0 #starts from 0 after successful finds
-            for filet in updatee.filelist:
-                if file == filet: #names are the same
-                    if self.marker[i] == updatee.marker[j]: #markers are the same
-                        print(f"{file} is the same")
-                        break
-                    else:
-                        print(f"{file} needs to be updated")
-                        self.replFile(self.directory + file, updatee.directory + filet)
-                        break
-                    #delete from array each of the compared files with successful matches
-                j += 1
-            i += 1
-        return
+            if os.path.isdir(updatee):
+                iterator += 1
+            else:
+                print(f"Error: {updatee} is not a valid directory.")
+                break
 
-    #check if the files updated correctly
-    def checkFile(self, updater_file, updatee_file):
-        if os.path.getmtime(updater_file) == os.path.getmtime(updatee_file):
-            print(f"Complete: file update successful from {updater_file}")
         else:
-            print("Error: files likely failed to update")
-        return
+            updater = input("Please input the reference directory: ")
+            dirlength = len(updater)
+            if updater[dirlength-1:] != "/":
+                updater = updater + "/"
+            if updater[:1] != "/":
+                updater = "/" + updater
 
-
-    def replFile(self, file_path, filet_path):
-        #copies reference file to new file
-        shutil.copy2(file_path, filet_path)
-        self.checkFile(file_path, filet_path)
-        return
+            if os.path.isdir(updater):
+                iterator += 1
+            else:
+                print(f"Error: {updater} is not a valid directory.")
+                break
         
+    if iterator == 2:
+        print(f"\n{warning}")
+        print(f"{liability}\n")
 
+        print("Please CAREFULLY check that the following input is correct:\n")
+        print(f"You are updating: \n {updatee}")
+        print(f"Using the directory: \n {updater} \n")
+        userInput = input("Input [y/N]: ")
+
+
+    
 
 def objectify(root_dir, workingDir):
     for dirpath, dirlist, filelist in os.walk(root_dir):
         workingDir.append(Directory(dirpath, filelist))
 
 
-#main
-
-# variable declaration
-dirUpdater = []
-dirUpdatee = []
-delimiter = "/"
 
 #create lists of directory objects
 objectify(updater, dirUpdater)
@@ -89,7 +80,8 @@ for updated in dirUpdater:
         updating_substring = updated.directory.split(delimiter) # V name comparison to end of path
         if updated_substring[len(updated_substring)-2] == updating_substring[len(updating_substring)-2]:
             updated.compareTo(updating)
-print()
+
+print("Successfully updated directories!")
 
 
 
