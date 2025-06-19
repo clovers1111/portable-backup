@@ -59,20 +59,23 @@ class Directory:
                 self.filelist[i] = file + "*"
                 updatee.filelist.append(self.filelist[i])
                 break
-        i += 1
+            i += 1
+        i = 0
         for filet in updatee.filelist:
             tnamesize = len(filet)
             while (filet[tnamesize-1:] != "*"):
                 print(f"{filet} does not exist in updater directory.")
                 self.delFile(updatee.directory, filet)
+                updatee.filelist.pop(i)
                 break
+            i += 1
         return
 
 
     #function for file deletion            
     def delFile(self, filet_dir, filet):
         print(f"Deleting {filet} . . .")
-        os.remove(filet_dir + filet)
+        os.remove(filet_dir + "/" + filet)
         print(f"{filet} successfully deleted.")
         return
 
@@ -80,7 +83,12 @@ class Directory:
     def replFile(self, file_dir, file, filet_dir):
         #copies reference file to new file
         print(f"Updating {filet_dir} . . .")
-        shutil.copy2(file_dir + file, filet_dir + file)
-        self.checkFile(file_dir + file, filet_dir + file)
+        #get all subdirectories after the first match o
+        shutil.copy2(file_dir + "/" + file, filet_dir + "/" + file)
+        self.checkFile(file_dir + "/" + file, filet_dir + "/" + file)
         file = file + "*"
+        return
+    
+    def findDir(self, file_dir, filet_dir):
+        #find directory to make for new folder
         return

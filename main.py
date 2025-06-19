@@ -13,13 +13,13 @@ dirUpdater = []
 dirUpdatee = []
 delimiter = "/"
 userInput = ""
+iterator = 0
 
 print(f"{welcome_message}")
 print(f"{version}\n")
 
 print(readme)
 while userInput != "y":
-    iterator = 0
     while iterator != 2:
 
         if iterator == 0:
@@ -55,9 +55,11 @@ while userInput != "y":
         print(f"{liability}\n")
 
         print("Please CAREFULLY check that the following input is correct:\n")
-        print(f"You are updating: \n {updatee}")
+        print(f"You are updatee: \n {updatee}")
         print(f"Using the directory: \n {updater} \n")
         userInput = input("Input [y/N]: ")
+        if userInput != "y":
+            iterator = 0
 
 
     
@@ -75,14 +77,19 @@ objectify(updatee, dirUpdatee)
 print("")
 
 #loop that iterates and compares objects in a list
-for updated in dirUpdater:
-    updated_substring = updated.directory.split(delimiter)
-    for updating in dirUpdatee:
-        updating_substring = updated.directory.split(delimiter) # V name comparison to end of path
-        if updated_substring[len(updated_substring)-2] == updating_substring[len(updating_substring)-2]:
-            updated.compareTo(updating)
+for updater in dirUpdater:
+    updater_substring = updater.directory.split(delimiter)
+    updater_end = updater_substring[len(updater_substring)-2]
+    for updatee in dirUpdatee:
+        updatee_substring = updatee.directory.split(delimiter) # V name comparison to end of path
+        updatee_end = updatee_substring[len(updatee_substring)-2]
+        if updater_end == updatee_end:
+            print(f"Traversing through directories \n {updater_end} \n V^V^V^V {updatee_end}")
+            updater.compareTo(updatee)
+        else:
+            print(f"{updater_end} does not match {updatee_end}!")
 
-print("Successfully updated directories!")
+print("Successfully updater directories!")
 
 
 
