@@ -77,19 +77,35 @@ objectify(updatee, dirUpdatee)
 print("")
 
 #loop that iterates and compares objects in a list
+i = 0
 for updater in dirUpdater:
+
+    j = 0
     updater_substring = updater.directory.split(delimiter)
-    updater_end = updater_substring[len(updater_substring)-2]
+    if (updater_substring[len(updater_substring)-1] == ""):
+        updater_substring.pop(len(updater_substring)-1)
+    updater_end = updater_substring[len(updater_substring)-1]
+
     for updatee in dirUpdatee:
+
         updatee_substring = updatee.directory.split(delimiter) # V name comparison to end of path
-        updatee_end = updatee_substring[len(updatee_substring)-2]
-        if updater_end == updatee_end:
-            print(f"Traversing through directories \n {updater_end} \n V^V^V^V {updatee_end}")
+        if (updatee_substring[len(updatee_substring)-1] == ""):
+            updatee_substring.pop(len(updatee_substring)-1)
+        updatee_end = updatee_substring[len(updatee_substring)-1]
+
+        if updatee.directory[len(updatee.directory)-1:] == "*":
+            print("Already traversed!")
+
+        elif updater_end == updatee_end:
+            print(f"Traversing through directories \n {updater_end} \n V^V^V^V \n {updatee_end}")
             updater.compareTo(updatee)
+            dirUpdatee[j].directory += "*"
+            j += 1
+
         else:
             print(f"{updater_end} does not match {updatee_end}!")
-
-print("Successfully updater directories!")
+    i += 1
+print("\nSuccessfully updated directories!")
 
 
 

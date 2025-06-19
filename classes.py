@@ -66,7 +66,7 @@ class Directory:
             while (filet[tnamesize-1:] != "*"):
                 print(f"{filet} does not exist in updater directory.")
                 self.delFile(updatee.directory, filet)
-                updatee.filelist.pop(i)
+                updatee.filelist[i] = filet + "*"
                 break
             i += 1
         return
