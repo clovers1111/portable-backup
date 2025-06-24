@@ -20,5 +20,11 @@ I anticipate creating adjustable parameters for the program's functionality in t
 
 - FILES PRESENT IN THE UPDATEE'S DIRECTORY THAT AREN'T IN THE UPDATER'S DIRECTORY WILL BE DELETED
 - FILES PRESENT IN THE UPDATER'S DIRECTORY THAT AREN'T IN THE UPDATEE'S DIRECTORY WILL BE CREATED
-- FILES THAT ARE PRESENT IN BOTH WILL BE EVALUATED TO SEE IF THEY'RE IDENTICAL (the evaluation method is subject to change); IF THEY ARE DIFFERENT, THE UPDATEE'S FILL WILL BE REPLACED WITH THE UPDATER'S FILE OF THE SAME NAME.
+- FILES THAT ARE PRESENT IN BOTH WILL BE EVALUATED TO SEE IF THEY'RE IDENTICAL (the evaluation method is subject to change); IF THEY ARE DIFFERENT, THE UPDATEE'S FILE WILL BE REPLACED WITH THE UPDATER'S FILE OF THE SAME NAME.
 
+
+## Long-Term Goals
+
+- Implementing a highly modular system for user-inputted parameters that would alter the behavior of the program.
+- A user interface.
+- Updating the README with videos.
