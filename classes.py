@@ -86,7 +86,6 @@ class Directory:
         #get all subdirectories after the first match o
         shutil.copy2(file_dir + "/" + file, filet_dir + "/" + file)
         self.checkFile(file_dir + "/" + file, filet_dir + "/" + file)
-        file = file + "*"
         return
     
     def findDir(self, file_dir, filet_dir):
