@@ -15,13 +15,14 @@ The program should be running now.
 
 > #### Glossary:
 > Updatee: the directory being updated.
+>
 > Updater: the directory containing the files used for updating Updatee.
 
 **For the moment, both of the working directories' root-most subdirectories <ins>must share a name.**</ins> For example, if your Updater's directory was ```/home/user/Documents/mybackup/``` the Updatee directory's final subdirectory would need to look something like ```/folder/folder/mybackup```.
 
 I anticipate creating adjustable parameters for the program's functionality in the near future, but for the time being, the program functionally runs the same every time:
 
-- FILES PRESENT IN THE UPDATEE'S DIRECTORY THAT AREN'T IN THE UPDATER'S DIRECTORY <font color="red"> WILL BE DELETED. </font>
+- FILES PRESENT IN THE UPDATEE'S DIRECTORY THAT AREN'T IN THE UPDATER'S DIRECTORY $\color{red}{\textsf{WILL BE DELETED}}$.
 - FILES PRESENT IN THE UPDATER'S DIRECTORY THAT AREN'T IN THE UPDATEE'S DIRECTORY WILL BE CREATED.
 - FILES THAT ARE PRESENT IN BOTH WILL BE EVALUATED TO SEE IF THEY'RE IDENTICAL (the evaluation method is subject to change); IF THEY ARE DIFFERENT, THE UPDATEE'S FILE WILL BE REPLACED WITH THE UPDATER'S FILE OF THE SAME NAME.
 
