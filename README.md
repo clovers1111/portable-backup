@@ -16,7 +16,7 @@ Updatee: the directory being updated.
 
 Updater: the directory containing the files used for updating Updatee.
 
-<ins>**For the moment, both of the working directories' root-most subdirectories must share a name.**</ins> For example, if your Updater's directory was ```/home/user/Documents/mybackup/``` the Updatee directory's final subdirectory would need to look something like ```/folder/folder/mybackup```
+<ins>**For the moment, both of the working directories' root-most subdirectories must share a name.**</ins> For example, if your Updater's directory was ```/home/user/Documents/mybackup/``` the Updatee directory's final subdirectory would need to look something like ```/folder/folder/mybackup```.
 
 I anticipate creating adjustable parameters for the program's functionality in the near future, but for the time being, the program functionally runs the same every time:
 
