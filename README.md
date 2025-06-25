@@ -25,13 +25,11 @@ I anticipate creating adjustable parameters for the program's functionality in t
 - FILES PRESENT IN THE UPDATER'S DIRECTORY THAT AREN'T IN THE UPDATEE'S DIRECTORY WILL BE CREATED.
 - FILES THAT ARE PRESENT IN BOTH WILL BE EVALUATED TO SEE IF THEY'RE IDENTICAL (the evaluation method is subject to change); IF THEY ARE DIFFERENT, THE UPDATEE'S FILE WILL BE REPLACED WITH THE UPDATER'S FILE OF THE SAME NAME.
 
-#### Known issues
-
-- Shortcuts are ambiguous (i.e., not defined as a folder or a file) to the default python libraries [os](https://github.com/python/cpython/blob/3.13/Lib/os.py) and [shutil](https://github.com/python/cpython/blob/3.13/Lib/shutil.py); therefore, shortcuts are not backed up and, upon hitting one, may terminate the program prematurely. (This may also apply to other obscure non-files.)
+### Known issues
+- Shortcuts are ambiguous (i.e., not defined as a folder or a file) to the default python libraries [os](https://github.com/python/cpython/blob/3.13/Lib/os.py) and [shutil](https://github.com/python/cpython/blob/3.13/Lib/shutil.py); therefore, shortcuts are not backed up and, upon hitting one, may terminate the program prematurely. (This may also apply to other obscure file objects.)
 
 
 ## Long-Term Goals
-
 - Implementing a highly modular system for user-inputted parameters that would alter the behavior of the program.
 - A user interface.
 - Updating the README with videos.
