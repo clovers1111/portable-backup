@@ -55,10 +55,10 @@ while userInput != "y":
         print(f"\n{warning}")
         print(f"{liability}\n")
 
-        print("Please CAREFULLY check that the following input is correct:\n")
-        print(f"You are updatee: \n {updatee}")
+        print("Please CAREFULLY check that the following input is correct:\n\n")
+        print(f"You are updating: \n {updatee}")
         print(f"Using the directory: \n {updater} \n")
-        userInput = input("Input [y/N]: ")
+        userInput = input("\nInput [y/N]: ")
         if userInput != "y":
             iterator = 0
 
@@ -91,10 +91,11 @@ for updater in dirUpdater:
         # If updatee ends with "*", it has been marked as complete.
         if updatee.directory[len(updatee.directory)-1:] == "*":
             print(f"Already traversed /{updatee_end}! ")
+            
 
         # If the end of the arrays are identical, traverse both directories.
         elif updater_end == updatee_end:
-            print(f"Traversing through directories \n /{updater_end} \n V^V^V^V \n /{updatee_end}")
+            print(f"\nTraversing through directories \n /{updater_end} \n ↕↕↕↕↕↕↕↕↕↕↕↕ \n /{updatee_end}\n")
             updater.compareTo(updatee)
             dirUpdater[i].directory += "*" #marks as competed
             dirUpdatee[j].directory += "*" 
