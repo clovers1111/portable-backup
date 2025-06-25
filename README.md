@@ -13,8 +13,12 @@ The program should be running now.
 
 ## Functionality
 
+
 Updatee: the directory being updated.
+
 Updater: the directory containing the files used for updating updatee.
+
+<ins>**For the moment, both of the working directories' root-most subdirectories must share a name.**</ins> For example, if your Updater's directory was ```/home/user/Documents/mybackup/``` the Updatee directory's final subdirectory would need to look something like ```/folder/folder/mybackup```
 
 I anticipate creating adjustable parameters for the program's functionality in the near future, but for the time being, the program functionally runs the same every time:
 
@@ -24,7 +28,7 @@ I anticipate creating adjustable parameters for the program's functionality in t
 
 #### Known issues
 
-- Shortcuts are ambiguous (i.e., not defined as a folder or a file) to the functions I am using from the default python library <os> and <shutil> and therefore are not backed up.
+- Shortcuts are ambiguous (i.e., not defined as a folder or a file) to the default python libraries <os> and <shutil>; therefore, they are not backed up.
 
 
 ## Long-Term Goals
