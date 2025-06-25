@@ -77,7 +77,7 @@ print("")
 #iteration between the array of objects and the array data member inside each object.
 i = 0
 for updater in dirUpdater:
-    #enumeration is necessary to correctly alter properties of the objects inside of the lists
+    # Enumeration is necessary to correctly alter properties of the objects inside of the lists.
     j = 0
 
     # Creates an array of words and isolates the final word from the array (the working directory).
@@ -98,10 +98,10 @@ for updater in dirUpdater:
             updater.compareTo(updatee)
             dirUpdater[i].directory += "*" #marks as competed
             dirUpdatee[j].directory += "*" 
-            j += 1
 
         else:
             print(f"/{updater_end} does not match /{updatee_end}!")
+        j += 1
     i += 1
 
 # Time to destroy entire directories
@@ -109,7 +109,10 @@ j = 0
 for updatee in dirUpdatee:
     if updatee.directory[len(updatee.directory)-1:] != "*":
         print(f"{updatee.directory} does not exist in updater's directory. \n Deleting . . .")
-        shutil.rmtree(updatee.directory)
+        try:
+            shutil.rmtree(updatee.directory)
+        except FileNotFoundError:
+            print(f"{updatee.directory} was a subdirectory of a previously deleted directory. \n")
 
         dirUpdatee[j].directory += "*"
 
@@ -152,7 +155,7 @@ for updater in dirUpdater:
 
         # All of the subdirectories of updater except the last 
         # shared folder between updater and updatee.
-        upper = temp_updater_list[updaterIN-1:]
+        upper = temp_updater_list[updaterIN+1:]
 
         new_dir_path = frankenDir(hcd_updatee, upper)
         print(f"Directory {new_dir_path} doesn't exist.")

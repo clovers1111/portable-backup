@@ -6,6 +6,8 @@ import array
 from classes import Directory
 from messages import *
 
+delimiter = "/"
+
 def objectify(root_dir, workingDir):
     for dirpath, dirlist, filelist in os.walk(root_dir):
         workingDir.append(Directory(dirpath, filelist))
