@@ -14,9 +14,8 @@ The program should be running now.
 ## Functionality
 
 > #### Glossary:
-> Updatee: the directory being updated.
->
-> Updater: the directory containing the files used for updating Updatee.
+> - Updatee: the directory being updated.
+> - Updater: the directory containing the files used for updating Updatee.
 
 **For the moment, both of the working directories' root-most subdirectories <ins>must share a name.**</ins> For example, if your Updater's directory was ```/home/user/Documents/mybackup/``` the Updatee directory's final subdirectory would need to look something like ```/folder/folder/mybackup```.
 
