@@ -22,6 +22,10 @@ I anticipate creating adjustable parameters for the program's functionality in t
 - FILES PRESENT IN THE UPDATER'S DIRECTORY THAT AREN'T IN THE UPDATEE'S DIRECTORY WILL BE CREATED
 - FILES THAT ARE PRESENT IN BOTH WILL BE EVALUATED TO SEE IF THEY'RE IDENTICAL (the evaluation method is subject to change); IF THEY ARE DIFFERENT, THE UPDATEE'S FILE WILL BE REPLACED WITH THE UPDATER'S FILE OF THE SAME NAME.
 
+#### Known issues
+
+- Shortcuts are ambiguous (i.e., not defined as a folder or a file) to the functions I am using from the default python library <os> and <shutil> and therefore are not backed up.
+
 
 ## Long-Term Goals
 
